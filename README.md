@@ -5,7 +5,7 @@
 ```bash
 brew install --cask apsoei/tap/nunchi   # tap 과 설치를 한 번에 (처음 한 번)
 
-brew upgrade --cask nunchi            # 업데이트 (전에 입력 소스를 ABC 로 바꿔 두기)
-brew uninstall --cask nunchi          # 삭제 (단어장은 남김)
+brew upgrade --cask apsoei/tap/nunchi   # 업데이트 (전에 입력 소스를 ABC 로 바꿔 두기)
+brew uninstall --cask apsoei/tap/nunchi # 삭제 (단어장은 남김)
 brew uninstall --cask --zap nunchi    # 단어장까지 삭제
 ```
