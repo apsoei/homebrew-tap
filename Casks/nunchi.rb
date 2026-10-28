@@ -8,7 +8,7 @@ cask "nunchi" do
   desc "Korean/English auto-switching input method"
   homepage "https://github.com/apsoei/nunchi"
 
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   input_method "Nunchi.app"
 
