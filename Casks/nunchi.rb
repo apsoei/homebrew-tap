@@ -19,12 +19,8 @@ cask "nunchi" do
     system_command "#{app}/Contents/MacOS/Nunchi", args: ["--register"]
   end
 
-  # 지우기 전에 입력 소스 목록에서 빼고, 떠 있는 입력기 프로세스를 내린다.
-  uninstall_preflight do
-    binary = "#{Dir.home}/Library/Input Methods/Nunchi.app/Contents/MacOS/Nunchi"
-    system_command binary, args: ["--unregister"], must_succeed: false if File.exist?(binary)
-  end
-
+  # 입력 소스 목록에서 빼는(--unregister) 단계는 두지 않는다. brew 는 업데이트 때도 삭제 단계를 거치는데,
+  # 업데이트 중에 끄고 다시 켜면 입력 메뉴에서 눈치가 사라졌다(설정에는 남아 있음). 떠 있는 프로세스만 내린다.
   uninstall signal: [["TERM", "io.github.apsoei.inputmethod.Nunchi"]]
 
   zap trash: "~/Library/Application Support/Nunchi"
@@ -35,6 +31,10 @@ cask "nunchi" do
 
     업데이트(brew upgrade --cask nunchi) 전에는 입력 소스를 ABC 등으로 바꿔 두고,
     끝나면 다시 '눈치'를 고르세요.
+
+    업데이트 뒤 입력 메뉴에서 눈치가 안 보이면: 시스템 설정 › 키보드 › 입력 소스 › 편집… 에서
+    눈치를 - 로 뺐다가 + 로 다시 추가하세요(로그아웃해도 됩니다).
+    삭제(uninstall) 뒤 입력 메뉴에 눈치가 남아 있으면 같은 곳에서 - 로 빼세요.
 
     단어장: ~/Library/Application Support/Nunchi/words.txt
     (brew uninstall --cask --zap nunchi 로 지우면 단어장도 함께 지워집니다)
