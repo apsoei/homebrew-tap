@@ -1,6 +1,6 @@
 cask "nunchi" do
-  version "0.3.0"
-  sha256 "c2b53086904a4ed3cf1a8224b9f60ae79efc2c941b815d601af6b10e4c3964bf"
+  version "0.3.2"
+  sha256 "88482f4fb4f3af3d3f5b00d2bf34bca7ee0a2967b147e35cd59fbab3a0257e12"
 
   url "https://github.com/apsoei/nunchi/releases/download/v#{version}/Nunchi-#{version}.zip"
   name "Nunchi"
